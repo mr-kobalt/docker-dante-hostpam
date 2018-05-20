@@ -1,0 +1,6 @@
+# For more information on using custom PAM-module 'pam_pwdfile' you should
+# consult with official repo https://github.com/tiwe-de/libpam-pwdfile
+auth  required  pam_pwdfile.so pwdfile=/etc/dante.pwdfile
+account required  pam_permit.so
+password  required  pam_deny.so
+session required  pam_permit.so
