@@ -81,7 +81,7 @@ ENV USER sockd
 COPY --from=build /usr/local/sbin/sockd /usr/local/sbin/
 COPY --from=build /lib/security/pam_pwdfile.so /lib/security/pam_pwdfile.so
 COPY ./docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-COPY ./sockd.conf /etc/sockd.conf
+COPY ./sockd.conf.template /etc/sockd.conf
 COPY ./sockd.pam /etc/pam.d/sockd
 
 RUN set -e \
@@ -97,4 +97,4 @@ RUN set -e \
 EXPOSE 1080
 
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["sockd", "-f", "/etc/sockd.conf", "-N", "10"]
+CMD ["sockd", "-f", "/etc/sockd.conf", "-N", "2"]
