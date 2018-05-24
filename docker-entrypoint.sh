@@ -3,7 +3,7 @@
 set -e
 
 if [ "$1" == "sockd" ]; then
-  if [ -z "$DEBUG"]; then
+  if [ -z "$DEBUG" ]; then
     export DEBUG=0
   fi
   sed -i "s/{DEBUG}/$DEBUG/" "/etc/sockd.conf"
@@ -18,12 +18,12 @@ if [ "$1" == "sockd" ]; then
   fi
   sed -i "s/{INTERNAL_IFACE}/$INTERNAL_IFACE/" "/etc/sockd.conf"
 
-  if [ -z "$PORT"]; then
+  if [ -z "$PORT" ]; then
     export PORT=1080
   fi
   sed -i "s/{PORT}/$PORT/" "/etc/sockd.conf"
 
-  if [ -z "$USER"]; then
+  if [ -z "$USER" ]; then
     export USER=sockd
   fi
   sed -i "s/{USER}/$USER/" "/etc/sockd.conf"
