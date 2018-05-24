@@ -1,0 +1,33 @@
+logoutput: stdout
+errorlog: stdout
+debug: {DEBUG}
+
+internal: {INTERNAL_IFACE} port = {PORT}
+external: {EXTERNAL_IFACE}
+external.rotation: route
+socksmethod: pam.username
+user.privileged: root
+user.unprivileged: {USER}
+
+client pass {
+    from: 0.0.0.0/0 to: 0.0.0.0/0
+    log: connect error disconnect
+}
+
+# Block all connection to the loopback
+socks block {
+        from: 0.0.0.0/0 to: lo
+        log: connect error
+}
+# Allow all operations for connected clients on this server.
+socks pass {
+    from: 0.0.0.0/0 to: 0.0.0.0/0
+    command: bind connect udpassociate
+    log: error connect disconnect
+}
+# Allow all inbound packets.
+socks pass {
+    from: 0.0.0.0/0 to: 0.0.0.0/0
+    command: bindreply udpreply
+    log: error    # connect disconnect iooperation
+}
