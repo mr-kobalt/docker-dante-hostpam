@@ -11,7 +11,7 @@ services:
       restart_policy:
         condition: on-failure
     volumes:
-      - "~/dante/dante.pwdfile:/etc/dante.pwdfile:ro"
+      - "~/docker/dante/dante.pwdfile:/etc/dante.pwdfile:ro"
     ports:
       - "1080:1080"
     networks:
