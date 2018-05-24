@@ -26,7 +26,7 @@ if [ "$1" == "sockd" ]; then
   if [ -z "$USER"]; then
     export USER=sockd
   fi
-  sed -i "s/{USER}/$PORT/" "/etc/sockd.conf"
+  sed -i "s/{USER}/$USER/" "/etc/sockd.conf"
 fi
 
 exec "$@"
