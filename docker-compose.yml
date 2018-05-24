@@ -14,7 +14,3 @@ services:
       - "~/docker/dante/dante.pwdfile:/etc/dante.pwdfile:ro"
     ports:
       - "1080:1080"
-    networks:
-      - webnet
-networks:
-  - webnet:
