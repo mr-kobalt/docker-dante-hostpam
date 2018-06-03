@@ -95,6 +95,7 @@ RUN set -e \
     && chmod 644 /etc/sockd.conf /etc/pam.d/sockd
 
 EXPOSE 1080
+EXPOSE 40000-45000/udp
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["sockd", "-f", "/etc/sockd.conf", "-N", "2"]

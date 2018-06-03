@@ -14,3 +14,4 @@ services:
       - "./dante.pwdfile:/etc/dante.pwdfile:ro"
     ports:
       - "1080:1080"
+      - "40000-45000:40000-45000/udp"
