@@ -14,9 +14,6 @@ services:
       - "./dante.pwdfile:/etc/dante.pwdfile:ro"
     networks:
       hostnet: {}
-    expose:
-      - "1080/tcp"
-      - "40000-45000/udp"
 networks:
   hostnet:
     external: true
