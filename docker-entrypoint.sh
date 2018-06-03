@@ -19,7 +19,7 @@ if [ "$1" == "sockd" ]; then
   sed -i "s/{INTERNAL_INTERFACE}/$INTERNAL_INTERFACE/" "/etc/sockd.conf"
 
   if [ -z "$TCP_PORT" ]; then
-    export PORT=1080
+    export TCP_PORT=1080
   fi
   sed -i "s/{TCP_PORT}/$TCP_PORT/" "/etc/sockd.conf"
 
