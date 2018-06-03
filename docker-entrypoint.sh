@@ -21,7 +21,7 @@ if [ "$1" == "sockd" ]; then
   if [ -z "$TCP_PORT" ]; then
     export PORT=1080
   fi
-  sed -i "s/{PORT}/$PORT/" "/etc/sockd.conf"
+  sed -i "s/{TCP_PORT}/$TCP_PORT/" "/etc/sockd.conf"
 
   if [ -z "$UDP_PORT" ]; then
     export UDP_PORT=40000-45000
