@@ -1,4 +1,4 @@
-version: "3"
+version: "3.5"
 services:
   proxy:
     image: kobalt/dante-hostpam:latest
@@ -12,6 +12,12 @@ services:
         condition: on-failure
     volumes:
       - "./dante.pwdfile:/etc/dante.pwdfile:ro"
-    ports:
-      - "1080:1080"
-      - "40000-45000:40000-45000/udp"
+    networks:
+      hostnet: {}
+    expose:
+      - "1080/tcp"
+      - "40000-45000/udp"
+networks:
+  hostnet:
+    external: true
+    name: host
