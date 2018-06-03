@@ -103,7 +103,7 @@ curl -x socks5h://username:password@localhost http://httpbin.org/ip
 
 This request should return your proxy server IP address. In order to troubleshoot possible errors you could run Dante in debug mod by running container with `DEBUG=1` environment variable (or `DEBUG=2` for more verbose output), for example:
 ```shell
-docker run --name dante -d DEBUG=1 -p 1080:1080 -v /absolute/path/to/passwd:/etc/dante.pwdfile:ro kobalt/dante-hostpam:latest
+docker run --name dante -d -e DEBUG=1 -p 1080:1080 -v /absolute/path/to/passwd:/etc/dante.pwdfile:ro kobalt/dante-hostpam:latest
 ```
 
 and then inspecting logs:
