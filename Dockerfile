@@ -41,7 +41,7 @@ RUN set -e\
     && SOFTWARE=`env | grep INSTALL | while read -r line; do \
         line=${line#*_}; \
         echo ${line%%_*}; \
-    done | uniq` \
+    done | sort | uniq` \
     && for prog in $SOFTWARE; do \
         eval name='$INSTALL_'${prog}'_NAME'; \
         eval url='$INSTALL_'${prog}'_URL'; \
